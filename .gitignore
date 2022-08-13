@@ -1,5 +1,7 @@
 /onechat_project/db.sqlite3
-/.idea
+*.iml
+.idea/
+.xml
 /onechat_project/onechat_project/prod_settings.py
 /onechat_venv/
 __pycache__/
