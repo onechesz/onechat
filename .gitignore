@@ -1,3 +1,3 @@
-onechat_project/onechat_project/settings.py
 /onechat_project/db.sqlite3
 /.idea
+/onechat_project/onechat_project/prod_settings.py
