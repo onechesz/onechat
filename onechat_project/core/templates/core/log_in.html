@@ -1,26 +1,26 @@
 {% extends 'base.html' %}
 
-{% block title %} Log In{% endblock title %}
+{% block title %}Вход{% endblock title %}
 
 {% block content %}
     <body class="bg-teal-600">
         {% include 'includes/navbar.html' %}
 
         <div class="p-10 lg:p-20 text-center">
-            <h1 class="text-3xl lg:text-6xl text-white">log in</h1>
+            <h1 class="text-3xl lg:text-6xl text-white">Вход</h1>
         </div>
 
         <form method="POST" class="lg:w-1/4 px-4 mx-auto">
             {% csrf_token %}
 
             <div class="mb-5">
-                <label class="text-white">Username</label>
+                <label class="text-white">Имя пользователя</label>
 
                 <input type="text" name="username" class="w-full mt-2 px-4 py-2 rounded-xl">
             </div>
 
             <div class="mb-5">
-                <label class="text-white">Password</label>
+                <label class="text-white">Пароль</label>
 
                 <input type="text" name="password" class="w-full mt-2 px-4 py-2 rounded-xl">
             </div>
@@ -35,7 +35,7 @@
                 {% endfor %}
             {% endif %}
 
-            <button class="px-4 py-2 rounded-xl text-white bg-teal-800 hover:bg-teal-700">Go</button>
+            <button class="px-4 py-2 rounded-xl text-white bg-teal-800 hover:bg-teal-700">Войти</button>
         </form>
     </body>
 {% endblock content %}

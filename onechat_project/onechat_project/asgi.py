@@ -1,12 +1,13 @@
 import os
-
-from django.core.asgi import get_asgi_application
-from channels.auth import AuthMiddlewareStack
-from channels.routing import ProtocolTypeRouter, URLRouter
-
-import rooms.routing
+import django
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'onechat_project.settings')
+django.setup()
+
+import rooms.routing
+from channels.auth import AuthMiddlewareStack
+from channels.routing import ProtocolTypeRouter, URLRouter
+from django.core.asgi import get_asgi_application
 
 application = ProtocolTypeRouter({
     'http': get_asgi_application(),
