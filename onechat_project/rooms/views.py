@@ -14,7 +14,7 @@ def rooms(request):
 @login_required
 def room(request, slug):
     room_info = Room.objects.get(slug=slug)
-    messages = Message.objects.filter(room=room_info)[0:25]
+    messages = Message.objects.filter(room=room_info).order_by('-date_added')[:20][::-1]
 
     return render(request, 'rooms/room.html', {
         'room_info': room_info,

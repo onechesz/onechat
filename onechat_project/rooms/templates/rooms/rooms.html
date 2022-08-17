@@ -3,23 +3,37 @@
 {% block title %}Комнаты{% endblock title %}
 
 {% block content %}
-    <body class="bg-teal-600">
+    <body>
         {% include 'includes/navbar.html' %}
 
-        <div class="p-10 lg:p-20 text-center">
-            <h1 class="text-3xl lg:text-6xl text-white">комнаты</h1>
-        </div>
-
-        <div class="w-full flex flex-wrap items-center">
-            {% for room in room_list %}
-                <div class="w-full lg:w-1/4 px-3 py-3">
-                    <div class="p-4 bg-white shadow rounded-xl text-center">
-                        <h2 class="mb-5 text-2xl font-semibold">{{ room.name }}</h2>
-
-                        <a href="{% url 'rooms:room' room.slug %}" class="px-5 py-3 block rounded-xl text-white bg-teal-600 hover:bg-teal-700">Join</a>
+        <main>
+            <div class="page-title">
+                <h1>комнаты</h1>
+            </div>
+    
+            <div class="room-list w-full flex flex-wrap items-center">
+                {% for room in room_list %}
+                    <div class="room">
+                        <h2 class="">{{ room.name }}</h2>
+    
+                        <a href="{% url 'rooms:room' room.slug %}" class="room-button">Join</a>
                     </div>
-                </div>
-            {% endfor %}
-        </div>
+                {% endfor %}
+                {% for room in room_list %}
+                    <div class="room">
+                        <h2 class="">{{ room.name }}</h2>
+    
+                        <a href="{% url 'rooms:room' room.slug %}" class="button">Join</a>
+                    </div>
+                {% endfor %}
+                {% for room in room_list %}
+                    <div class="room">
+                        <h2 class="">{{ room.name }}</h2>
+    
+                        <a href="{% url 'rooms:room' room.slug %}" class="button">Join</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </mai>
     </body>
 {% endblock content %}

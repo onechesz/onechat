@@ -6,11 +6,11 @@
     <body class="bg-teal-600">
         {% include 'includes/navbar.html' %}
 
-        <div class="p-10 lg:p-20 text-center">
-            <h1 class="text-3xl lg:text-6xl text-white">регистрация</h1>
+        <div class="page-title">
+            <h1>регистрация</h1>
         </div>
 
-        <form method="POST" class="lg:w-1/4 px-4 mx-auto">
+        <form class="log_in" method="POST" class="lg:w-1/4 px-4 mx-auto">
             {% csrf_token %}
 
             <div class="mb-5">
