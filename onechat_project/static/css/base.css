@@ -220,6 +220,7 @@ h1 {
 @media (max-width: 640px) {
     main {
         margin: 0 auto;
+        width: 95vw
     }
 
     .log_in {

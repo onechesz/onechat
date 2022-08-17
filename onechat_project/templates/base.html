@@ -9,12 +9,6 @@
         <title>{% block title %}{% endblock title %}</title>
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
         {% block css_additional %}{% endblock css_additional %}
-        <style>
-            .chat-messages {
-                height: 400px;
-                overflow: auto;
-            }
-        </style>
     </head>
 
     {% block content %}
