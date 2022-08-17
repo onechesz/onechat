@@ -19,20 +19,6 @@
                         <a href="{% url 'rooms:room' room.slug %}" class="room-button">Join</a>
                     </div>
                 {% endfor %}
-                {% for room in room_list %}
-                    <div class="room">
-                        <h2 class="">{{ room.name }}</h2>
-    
-                        <a href="{% url 'rooms:room' room.slug %}" class="button">Join</a>
-                    </div>
-                {% endfor %}
-                {% for room in room_list %}
-                    <div class="room">
-                        <h2 class="">{{ room.name }}</h2>
-    
-                        <a href="{% url 'rooms:room' room.slug %}" class="button">Join</a>
-                    </div>
-                {% endfor %}
             </div>
         </mai>
     </body>
