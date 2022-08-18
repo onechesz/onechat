@@ -112,6 +112,10 @@ h1 {
 }
 
 .chat-message {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
     background-color: #b6ddd9;
     padding: .1rem 1rem;
     margin: 0 auto 1rem;
@@ -127,8 +131,14 @@ h1 {
     margin-bottom: 0;
 }
 
+.chat-message-date {
+    font-style: italic;
+    margin: 1rem 0 0;
+}
+
 .chat-message-message {
-    margin-top: .5rem;
+    flex: 1 0 100%;
+    margin: .5rem 0 1rem;
 }
 
 .chat-send {
