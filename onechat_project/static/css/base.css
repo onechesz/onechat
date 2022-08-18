@@ -252,6 +252,12 @@ h1 {
         border-radius: 0;
     }
 
+    .footer {
+        width: 100vw;
+        border-radius: 0;
+        left: 0;
+    }
+
     .log_in {
         width: 50vw;
     }
