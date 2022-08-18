@@ -43,14 +43,14 @@
         const roomName = JSON.parse(document.getElementById('json-roomname').textContent);
         const userName = JSON.parse(document.getElementById('json-username').textContent);
         const chatSocket = new WebSocket(
-            'ws://'
+            'wss://'
             + window.location.host
             + '/ws/'
             + roomName
             + '/'
         );
 
-        const messageSound = new Audio("{% static 'message.wav' %}");
+        const messageSound = new Audio("{% static 'sounds/message.wav' %}");
 
         chatSocket.onmessage = function(e) {
             console.log('onmessage');
