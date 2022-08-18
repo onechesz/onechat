@@ -11,15 +11,17 @@
                 <h1>комнаты</h1>
             </div>
     
-            <div class="room-list w-full flex flex-wrap items-center">
+            <div class="room-list">
                 {% for room in room_list %}
                     <div class="room">
-                        <h2 class="">{{ room.name }}</h2>
+                        <h2>{{ room.name }}</h2>
     
                         <a href="{% url 'rooms:room' room.slug %}" class="room-button">Join</a>
                     </div>
                 {% endfor %}
             </div>
-        </mai>
+        </main>
+
+        {% include 'includes/footer.html' %}
     </body>
 {% endblock content %}

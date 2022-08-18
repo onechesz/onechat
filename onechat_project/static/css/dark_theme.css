@@ -1,0 +1,79 @@
+html {
+    background-color: #010203;
+    color: #5e676e
+}
+
+.navbar {
+    box-shadow: none;
+}
+
+.navbar,
+.room,
+.chat-message,
+.footer {
+    background-color: #121212;
+}
+
+.navbar .logo a,
+.navbar .first-btn,
+.room h2,
+.footer a {
+    color: #5e676e;
+}
+
+.navbar .first-btn:hover {
+    color: #e25303;
+}
+
+.footer a:hover {
+    color: #383e42;
+}
+
+.room-button,
+.navbar .second-btn,
+.chat-send-button,
+.log_in button,
+.footer button {
+    color: #010203;
+    background-color: #5e676e;
+}
+
+.room-button:hover,
+.navbar .second-btn:hover,
+.chat-send-button:hover,
+.log_in button:hover, 
+.footer button:hover {
+    background-color: #383e42;
+}
+
+.chat-window,
+.chat-send {
+    background-color: #010203;
+}
+
+.chat-message-message,
+.chat-message-username {
+    color: #5e676e;
+}
+
+.chat-send-textholder {
+    color: #5e676e;
+    background-color: #121212;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: #383e42;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #383e42;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #383e42;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #383e42;
+}
+
+.log_in > div > input {
+    background-color: #5e676e;
+}

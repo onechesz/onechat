@@ -6,42 +6,46 @@
     <body class="bg-teal-600">
         {% include 'includes/navbar.html' %}
 
-        <div class="page-title">
-            <h1>регистрация</h1>
-        </div>
-
-        <form class="log_in" method="POST" class="lg:w-1/4 px-4 mx-auto">
-            {% csrf_token %}
-
-            <div class="mb-5">
-                <label class="text-white">Имя пользователя</label>
-
-                <input type="text" name="username" class="w-full mt-2 px-4 py-2 rounded-xl">
+        <main>
+            <div class="page-title">
+                <h1>регистрация</h1>
             </div>
-
-            <div class="mb-5">
-                <label class="text-white">Пароль</label>
-
-                <input type="text" name="password1" class="w-full mt-2 px-4 py-2 rounded-xl">
-            </div>
-
-            <div class="mb-5">
-                <label class="text-white">Пароль (ещё раз)</label>
-
-                <input type="text" name="password2" class="w-full mt-2 px-4 py-2 rounded-xl">
-            </div>
-
-            {% if form.errors %}
-                {% for field in form %}
-                    {% for error in field.errors %}
-                        <div class="mb-5 p-4 rounded-xl bg-red-300 text-white">
-                            <p>{{ error|escape }}</p>
-                        </div>
+    
+            <form class="log_in" method="POST" class="lg:w-1/4 px-4 mx-auto">
+                {% csrf_token %}
+    
+                <div class="mb-5">
+                    <label>Имя пользователя</label>
+    
+                    <input type="text" name="username" class="w-full mt-2 px-4 py-2 rounded-xl">
+                </div>
+    
+                <div class="mb-5">
+                    <label>Пароль</label>
+    
+                    <input type="text" name="password1" class="w-full mt-2 px-4 py-2 rounded-xl">
+                </div>
+    
+                <div class="mb-5">
+                    <label >Пароль (ещё раз)</label>
+    
+                    <input type="text" name="password2" class="w-full mt-2 px-4 py-2 rounded-xl">
+                </div>
+    
+                {% if form.errors %}
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <div class="mb-5 p-4 rounded-xl bg-red-300 text-white">
+                                <p>{{ error|escape }}</p>
+                            </div>
+                        {% endfor %}
                     {% endfor %}
-                {% endfor %}
-            {% endif %}
+                {% endif %}
+    
+                <button class="px-4 py-2 rounded-xl text-white bg-teal-800 hover:bg-teal-700">Зарегистрироваться</button>
+            </form>
+        </main>
 
-            <button class="px-4 py-2 rounded-xl text-white bg-teal-800 hover:bg-teal-700">Зарегистрироваться</button>
-        </form>
+        {% include 'includes/footer.html' %}
     </body>
 {% endblock content %}

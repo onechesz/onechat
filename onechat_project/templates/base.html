@@ -13,7 +13,36 @@
 
     {% block content %}
     {% endblock content %}
+    <script>
+        const btnTheme = document.getElementById('btn-theme');
+        const headElem = document.getElementsByTagName('head')[0];
 
+        const darkThemeLink = document.createElement('link');
+        darkThemeLink.href = "{% static 'css/dark_theme.css' %}";
+        darkThemeLink.rel = 'stylesheet'
+
+        let theme = localStorage.getItem('theme');
+
+        if (theme === 'dark') {
+            headElem.appendChild(darkThemeLink);;
+            btnTheme.innerText = 'Светлее';
+        } 
+
+        btnTheme.addEventListener('click', () => {
+            if (theme === 'light' || theme === null) {
+                localStorage.setItem('theme', 'dark');
+                headElem.appendChild(darkThemeLink);
+                btnTheme.innerText = 'Светлее';
+                theme = localStorage.getItem('theme');
+            }
+            else if (theme === 'dark') {
+                localStorage.setItem('theme', 'light');
+                headElem.removeChild(darkThemeLink);
+                btnTheme.innerText = 'Темнее';
+                theme = localStorage.getItem('theme');
+            }
+        })
+    </script>
     {% block scripts %}
     {% endblock scripts %}
 </html>
