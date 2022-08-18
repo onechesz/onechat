@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}{{ room_info.name }}{% endblock title %}
 
 {% block content %}
@@ -41,12 +43,14 @@
         const roomName = JSON.parse(document.getElementById('json-roomname').textContent);
         const userName = JSON.parse(document.getElementById('json-username').textContent);
         const chatSocket = new WebSocket(
-            'wss://'
+            'ws://'
             + window.location.host
             + '/ws/'
             + roomName
             + '/'
         );
+
+        const messageSound = new Audio("{% static 'message.wav' %}");
 
         chatSocket.onmessage = function(e) {
             console.log('onmessage');
@@ -60,7 +64,8 @@
                     html += '<p class="chat-message-message">' + data.message + '</p>';
                     html += '</div>'
                 
-                document.querySelector('#chat-messages').innerHTML += html
+                document.querySelector('#chat-messages').innerHTML += html;
+                messageSound.play();
 
                 scrollToBottom();
             }
