@@ -54,7 +54,7 @@
             + '/'
         );
 
-        const messageSound = new Audio("{% static 'sounds/message.mp3' %}");
+        const messageSound = new Audio("{% static 'sounds/message.wav' %}");
 
         chatSocket.onmessage = function(e) {
             console.log('onmessage');
