@@ -182,6 +182,19 @@ h1 {
     cursor: pointer;
 }
 
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: #465150;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #465150;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #465150;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #465150;
+}
+
 .log_in {
     display: flex;
     flex-wrap: wrap;
