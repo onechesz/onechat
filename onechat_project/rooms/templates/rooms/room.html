@@ -63,10 +63,13 @@
 
             if (data.message) {
                 let html = '<div class="chat-message">';
-                    html += '<p class="chat-message-username">' + data.username + '</p>';
-                    html += '<p class="chat-message-date">' + data.date + '</p>';
-                    html += '<p class="chat-message-message">' + data.message + '</p>';
-                    html += '</div>'
+                        html += '<p class="chat-message-username">' + data.username + '</p>';
+                        html += '<div class="chat-message-date">';
+                            html += '<span class="chat-message-date-date">' + data.date.slice(0, 12) + '</span>';
+                            html += '<span class="chat-message-date-time">' + data.date.slice(12) + '</span>';
+                        html += '</div>';
+                        html += '<p class="chat-message-message">' + data.message + '</p>';
+                    html += '</>'
                 
                 document.querySelector('#chat-messages').innerHTML += html;
                 messageSound.play();
