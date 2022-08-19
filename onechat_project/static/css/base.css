@@ -144,6 +144,18 @@ h1 {
     margin: 1rem 0 0;
 }
 
+.chat-message-date-date {
+    display: none;
+}
+
+.chat-message-date:hover {
+    cursor: help;
+}
+
+.chat-message-date:hover .chat-message-date-date {
+    display: inline;
+}
+
 .chat-message-message {
     flex: 1 0 100%;
     margin: .5rem 0 1rem;

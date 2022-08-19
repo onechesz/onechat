@@ -18,7 +18,11 @@
                     <div class="chat-message">
                         <p class="chat-message-username">{{ message.user.username }}</p>
     
-                        <p class="chat-message-date">{{ message.date_added|date:'d.m.Y, H:i' }}</p>
+                        <div class="chat-message-date">
+                            <span class="chat-message-date-date">{{ message.date_added|date:'d.m.Y, ' }}</span>
+    
+                            <span class="chat-message-date-time">{{ message.date_added|date:'H:i' }}</span>
+                        </div>
     
                         <p class="chat-message-message">{{ message.content }}</p>
                     </div>
@@ -43,7 +47,7 @@
         const roomName = JSON.parse(document.getElementById('json-roomname').textContent);
         const userName = JSON.parse(document.getElementById('json-username').textContent);
         const chatSocket = new WebSocket(
-            'ws://'
+            'wss://'
             + window.location.host
             + '/ws/'
             + roomName
