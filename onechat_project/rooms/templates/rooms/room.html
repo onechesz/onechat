@@ -15,7 +15,7 @@
     
             <div class="chat-window" id="chat-messages">
                 {% for message in messages %}
-                    <div class="chat-message">
+                    <div class="chat-message {% if current_user.username == message.user.username %} self-message {% endif %}">
                         <p class="chat-message-username">{{ message.user.username }}</p>
     
                         <div class="chat-message-date">
@@ -62,14 +62,21 @@
             const data = JSON.parse(e.data);
 
             if (data.message) {
-                let html = '<div class="chat-message">';
-                        html += '<p class="chat-message-username">' + data.username + '</p>';
-                        html += '<div class="chat-message-date">';
-                            html += '<span class="chat-message-date-date">' + data.date.slice(0, 12) + '</span>';
-                            html += '<span class="chat-message-date-time">' + data.date.slice(12) + '</span>';
-                        html += '</div>';
-                        html += '<p class="chat-message-message">' + data.message + '</p>';
-                    html += '</>'
+                let html = ''
+
+                if (data.username === userName) {
+                    html += '<div class="chat-message self-message">';
+                }
+                else {
+                    html += '<div class="chat-message">';
+                }
+                    html += '<p class="chat-message-username">' + data.username + '</p>';
+                    html += '<div class="chat-message-date">';
+                        html += '<span class="chat-message-date-date">' + data.date.slice(0, 12) + '</span>';
+                        html += '<span class="chat-message-date-time">' + data.date.slice(12) + '</span>';
+                    html += '</div>';
+                    html += '<p class="chat-message-message">' + data.message + '</p>';
+                html += '</div>'
                 
                 document.querySelector('#chat-messages').innerHTML += html;
                 messageSound.play();

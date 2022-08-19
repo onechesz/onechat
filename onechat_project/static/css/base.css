@@ -124,10 +124,14 @@ h1 {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    background-color: #b6ddd9;
+    background-color: #c2d1cf;
     padding: .1rem 1rem;
     margin: 0 auto 1rem;
     border-radius: 1rem;
+}
+
+.self-message {
+    background-color: #b6ddd9;
 }
 
 .chat-message:last-child {
