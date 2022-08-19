@@ -14,6 +14,10 @@ html {
     background-color: #121212;
 }
 
+.self-message {
+    background-color: #1d0d04;
+}
+
 .navbar .logo a,
 .navbar .first-btn,
 .room h2,
