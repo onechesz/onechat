@@ -16,7 +16,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/rooms/'
-LOGIN_URL = '/login/'
+LOGIN_URL = '/log_in/'
 
 # Application definition
 
@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'channels',
     'core',
-    'rooms'
+    'rooms',
+    'my_profile'
 ]
 
 MIDDLEWARE = [

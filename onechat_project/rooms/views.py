@@ -4,7 +4,7 @@ from django.shortcuts import render
 from .models import Room, Message
 
 
-@login_required
+@login_required()
 def rooms(request):
     room_list = Room.objects.all
 

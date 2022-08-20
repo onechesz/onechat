@@ -3,25 +3,19 @@
 {% block title %}Комнаты{% endblock title %}
 
 {% block content %}
-    <body>
-        {% include 'includes/navbar.html' %}
+    <main>
+        <div class="page-title">
+            <h1>комнаты</h1>
+        </div>
 
-        <main>
-            <div class="page-title">
-                <h1>комнаты</h1>
-            </div>
-    
-            <div class="room-list">
-                {% for room in room_list %}
-                    <div class="room">
-                        <h2>{{ room.name }}</h2>
-    
-                        <a href="{% url 'rooms:room' room.slug %}" class="room-button">Join</a>
-                    </div>
-                {% endfor %}
-            </div>
-        </main>
+        <div class="room-list">
+            {% for room in room_list %}
+                <div class="room">
+                    <h2>{{ room.name }}</h2>
 
-        {% include 'includes/footer.html' %}
-    </body>
+                    <a href="{% url 'rooms:room' room.slug %}" class="room-button">Join</a>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
 {% endblock content %}

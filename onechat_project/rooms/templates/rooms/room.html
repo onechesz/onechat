@@ -5,38 +5,32 @@
 {% block title %}{{ room_info.name }}{% endblock title %}
 
 {% block content %}
-    <body>
-        {% include 'includes/navbar.html' %}
-
-        <main>
-            <div class="page-title">
-                <h1>{{ room_info.name }}</h1>
-            </div>
+    <main>
+        <div class="page-title">
+            <h1>{{ room_info.name }}</h1>
+        </div>
     
-            <div class="chat-window" id="chat-messages">
-                {% for message in messages %}
-                    <div class="chat-message {% if current_user.username == message.user.username %} self-message {% endif %}">
-                        <p class="chat-message-username">{{ message.user.username }}</p>
+        <div class="chat-window" id="chat-messages">
+            {% for message in messages %}
+                <div class="chat-message {% if current_user.username == message.user.username %} self-message {% endif %}">
+                    <p class="chat-message-username">{{ message.user.username }}</p>
     
-                        <div class="chat-message-date">
-                            <span class="chat-message-date-date">{{ message.date_added|date:'d.m.Y, ' }}</span>
+                    <div class="chat-message-date">
+                        <span class="chat-message-date-date">{{ message.date_added|date:'d.m.Y, ' }}</span>
     
-                            <span class="chat-message-date-time">{{ message.date_added|date:'H:i' }}</span>
-                        </div>
-    
-                        <p class="chat-message-message">{{ message.content }}</p>
+                        <span class="chat-message-date-time">{{ message.date_added|date:'H:i' }}</span>
                     </div>
-                {% endfor %}
-            </div>
     
-            <form method="POST" class="chat-send">
-                <input type="text" name="content" class="chat-send-textholder" placeholder="Введите сообщение..." id="chat-message-input">
-                <button class="chat-send-button" id="chat-message-submit">Отправить</button>
-            </form>
-        </main>
-
-        {% include 'includes/footer.html' %}
-    </body>
+                    <p class="chat-message-message">{{ message.content }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    
+        <form method="POST" class="chat-send">
+            <input type="text" name="content" class="chat-send-textholder" placeholder="Введите сообщение..." id="chat-message-input">
+            <button class="chat-send-button" id="chat-message-submit">Отправить</button>
+        </form>
+    </main>
 {% endblock content %}
 
 {% block scripts %}

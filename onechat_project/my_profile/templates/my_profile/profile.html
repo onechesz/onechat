@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Профиль{% endblock title %}
+
+{% block content %}
+    <main>
+        <div class="page-title">
+            <h1>профиль</h1>
+        </div>
+
+        <div class="change-password">
+            <h2>Сменить пароль</h2>
+
+            <form class="log_in" method="POST">
+                {% csrf_token %}
+
+                <div>
+                    <label>Старый пароль</label>
+    
+                    <input type="text" name="old_password">
+                </div>
+    
+                <div>
+                    <label>Новый пароль</label>
+    
+                    <input type="text" name="new_password1">
+                </div>
+    
+                <div>
+                    <label>Новый пароль (ещё раз)</label>
+    
+                    <input type="text" name="new_password2">
+                </div>
+    
+                {% if form.errors %}
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <div>
+                                <p>{{ error|escape }}</p>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                {% endif %}
+    
+                <button>Применить</button>
+            </form>
+        </div>
+    </main>
+{% endblock content %}

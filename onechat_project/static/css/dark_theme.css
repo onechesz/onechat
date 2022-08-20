@@ -21,11 +21,20 @@ html {
 .navbar .logo a,
 .navbar .first-btn,
 .room h2,
-.footer a {
+.footer a,
+.chat-message-message,
+.chat-message-username,
+.sidebar a,
+.sidebar {
     color: #5e676e;
 }
 
-.navbar .first-btn:hover {
+.sidebar li {
+    border-color: #5e676e;
+}
+
+.navbar .first-btn:hover,
+.sidebar a:hover {
     color: #e25303;
 }
 
@@ -37,7 +46,8 @@ html {
 .navbar .second-btn,
 .chat-send-button,
 .log_in button,
-.footer button {
+.footer button,
+#menu-button {
     color: #010203;
     background-color: #5e676e;
 }
@@ -46,18 +56,14 @@ html {
 .navbar .second-btn:hover,
 .chat-send-button:hover,
 .log_in button:hover, 
-.footer button:hover {
+.footer button:hover,
+#menu-button:hover {
     background-color: #383e42;
 }
 
 .chat-window,
 .chat-send {
     background-color: #010203;
-}
-
-.chat-message-message,
-.chat-message-username {
-    color: #5e676e;
 }
 
 .chat-send-textholder {
@@ -80,4 +86,10 @@ html {
 
 .log_in > div > input {
     background-color: #5e676e;
+}
+
+@media (max-width: 640px) {
+    .sidebar {
+        background-color: #121212;
+    }
 }

@@ -5,7 +5,7 @@
 
     <div>
         {% if request.user.is_authenticated %}
-            <a href="{% url 'rooms:rooms' %}" class="first-btn">Комнаты</a>
+            <a href="{% url 'my_profile:profile' %}" class="first-btn">Профиль</a>
             <a href="{% url 'core:log_out' %}" class="second-btn">Выйти</a>
         {% else %}
             <a href="{% url 'core:log_in' %}" class="first-btn">Войти</a>

@@ -11,8 +11,21 @@
         {% block css_additional %}{% endblock css_additional %}
     </head>
 
-    {% block content %}
-    {% endblock content %}
+    <body>
+        {% include 'includes/navbar.html' %}
+
+        {% block content %}
+        {% endblock content %}
+
+        {% include 'includes/footer.html' %}
+
+        <button id="menu-button">Меню</button>
+
+        {% include 'includes/sidebar.html' %}
+        
+        <div id="overlay" class="overlay"></div>
+    </body>
+
     <script>
         const btnTheme = document.getElementById('btn-theme');
         const headElem = document.getElementsByTagName('head')[0];
@@ -43,6 +56,23 @@
             }
         })
     </script>
+
+    <script>
+        const menuBtn = document.getElementById('menu-button');
+        const sideBar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        menuBtn.addEventListener('click', () => {
+            sideBar.style.display = 'block';
+            overlay.style.display = 'block';
+        })
+
+        overlay.addEventListener('click', () => {
+            sideBar.removeAttribute('style');
+            overlay.removeAttribute('style');
+        })
+    </script>
+
     {% block scripts %}
     {% endblock scripts %}
 </html>
