@@ -7,5 +7,6 @@ urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('', include('core.urls')),
                   path('rooms/', include('rooms.urls')),
-                  path('profile/', include('my_profile.urls'))
+                  path('profile/', include('my_profile.urls')),
+                  path('user/', include('user.urls'))
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

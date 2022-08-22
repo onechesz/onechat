@@ -25,6 +25,14 @@ main {
     grid-row: 2;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: inherit;
+}
+
 .change-password h2 {
     text-align: center;
     margin: 5rem auto 0;
@@ -126,8 +134,9 @@ main {
 }
 
 h1 {
+    min-width: 0;
     font-size: 3.5rem;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .room-list {
@@ -167,7 +176,8 @@ h1 {
     background-color: rgb(225, 225, 225);
 }
 
-.chat-window {
+.chat-window,
+.private-chat-window {
     margin: 1rem 2rem 0;
     background-color: #009789;
     border-radius: 1rem;
@@ -198,6 +208,7 @@ h1 {
 .chat-message-username {
     font-weight: 600;
     margin-bottom: 0;
+    margin: 1rem 0 0;
 }
 
 .chat-message-date {
@@ -350,6 +361,40 @@ h1 {
     height: 100%;
     width: 100%;
     display: none;
+}
+
+#user-page-title {
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+}
+
+.user-actions {
+    min-width: 140px;
+}
+
+.user-actions button {
+    font-size: large;
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #007e72;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    padding: .5rem 1rem;
+}
+
+.user-actions button:hover {
+    cursor: pointer;
+    background-color: #007167;
+}
+
+#block-user {
+    background-color: #7e000c;
+}
+
+#block-user:hover {
+    background-color: #6f000b;
 }
 
 @media (max-width: 1024px) {

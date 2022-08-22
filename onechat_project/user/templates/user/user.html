@@ -2,18 +2,24 @@
 
 {% load static %}
 
-{% block title %}{{ room_info.name }}{% endblock title %}
+{% block title %}{{ user_data.username }}{% endblock title %}
 
 {% block content %}
     <main>
-        <div class="page-title">
-            <h1>{{ room_info.name }}</h1>
+        <div id="user-page-title" class="page-title">
+            <h1>{{ user_data.username }}</h1>
+            
+            <div class="user-actions">
+                <button title="Сохранить контакт" id="add-user">+</button>
+                <button title="Удалить контакт" id="remove-user">-</button>
+                <button title="Заблокировать пользователя" id="block-user">×</button>
+            </div>
         </div>
-    
+
         <div class="chat-window" id="chat-messages">
             {% for message in messages %}
-                <div class="chat-message {% if current_user.username == message.user.username %} self-message {% endif %}">
-                    <a class="chat-message-username" href="{% url 'user:user' message.user.username %}">{{ message.user.username }}</a>
+                <div class="chat-message {% if current_user.username == message.sender %} self-message {% endif %}">
+                    <p class="chat-message-username">{{ message.sender }}</p>
     
                     <div class="chat-message-date">
                         <span class="chat-message-date-date">{{ message.date_added|date:'d.m.Y, ' }}</span>
@@ -25,7 +31,7 @@
                 </div>
             {% endfor %}
         </div>
-    
+
         <form method="POST" class="chat-send">
             <input type="text" name="content" class="chat-send-textholder" placeholder="Введите сообщение..." id="chat-message-input">
             <button class="chat-send-button" id="chat-message-submit">Отправить</button>
@@ -34,17 +40,19 @@
 {% endblock content %}
 
 {% block scripts %}
-    {{ room_info.slug|json_script:"json-roomname" }}
-    {{ request.user.username|json_script:"json-username" }}
+    {{ user_data.username|json_script:"json-receiver" }}
+    {{ request.user.username|json_script:"json-sender" }}
 
     <script>
-        const roomName = JSON.parse(document.getElementById('json-roomname').textContent);
-        const userName = JSON.parse(document.getElementById('json-username').textContent);
+        const receiver = JSON.parse(document.getElementById('json-receiver').textContent);
+        const sender = JSON.parse(document.getElementById('json-sender').textContent);
         const chatSocket = new WebSocket(
             'ws://'
             + window.location.host
             + '/ws/'
-            + roomName
+            + sender
+            + '-'
+            + receiver
             + '/'
         );
 
@@ -58,13 +66,13 @@
             if (data.message) {
                 let html = ''
 
-                if (data.username === userName) {
+                if (data.sender === sender) {
                     html += '<div class="chat-message self-message">';
                 }
                 else {
                     html += '<div class="chat-message">';
                 }
-                    html += '<p class="chat-message-username">' + data.username + '</p>';
+                    html += '<p class="chat-message-username">' + data.sender + '</p>';
                     html += '<div class="chat-message-date">';
                         html += '<span class="chat-message-date-date">' + data.date.slice(0, 12) + '</span>';
                         html += '<span class="chat-message-date-time">' + data.date.slice(12) + '</span>';
@@ -98,8 +106,8 @@
             chatSocket.send(JSON.stringify({
                 'date': new Date().toLocaleString("ru-RU", options),
                 'message': message,
-                'username': userName,
-                'roomname': roomName
+                'sender': sender,
+                'receiver': receiver
             }));
 
             messageInputDOM.value = '';

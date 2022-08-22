@@ -30,7 +30,8 @@ INSTALLED_APPS = [
     'channels',
     'core',
     'rooms',
-    'my_profile'
+    'my_profile',
+    'user'
 ]
 
 MIDDLEWARE = [
