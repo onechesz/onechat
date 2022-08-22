@@ -38,10 +38,14 @@
     {{ request.user.username|json_script:"json-username" }}
 
     <script>
+        function generate_url(username) {
+            return "{% url 'user:user' 'abcdefg' %}".replace('abcdefg', username);
+        }
+
         const roomName = JSON.parse(document.getElementById('json-roomname').textContent);
         const userName = JSON.parse(document.getElementById('json-username').textContent);
         const chatSocket = new WebSocket(
-            'ws://'
+            'wss://'
             + window.location.host
             + '/ws/'
             + roomName
@@ -64,7 +68,7 @@
                 else {
                     html += '<div class="chat-message">';
                 }
-                    html += '<p class="chat-message-username">' + data.username + '</p>';
+                    html += '<a class="chat-message-username" href="' + generate_url(data.username) + '">' + data.username + '</a>';
                     html += '<div class="chat-message-date">';
                         html += '<span class="chat-message-date-date">' + data.date.slice(0, 12) + '</span>';
                         html += '<span class="chat-message-date-time">' + data.date.slice(12) + '</span>';

@@ -29,6 +29,14 @@ a {
     text-decoration: none;
 }
 
+a:link {
+    color: inherit;
+}
+
+a:active {
+    color: inherit;
+}
+
 a:visited {
     color: inherit;
 }

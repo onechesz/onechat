@@ -47,7 +47,7 @@
         const receiver = JSON.parse(document.getElementById('json-receiver').textContent);
         const sender = JSON.parse(document.getElementById('json-sender').textContent);
         const chatSocket = new WebSocket(
-            'ws://'
+            'wss://'
             + window.location.host
             + '/ws/'
             + sender
