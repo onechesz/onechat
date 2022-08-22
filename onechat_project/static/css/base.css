@@ -30,15 +30,15 @@ a {
 }
 
 a:link {
-    color: inherit;
+    color: initial;
 }
 
 a:active {
-    color: inherit;
+    color: initial;
 }
 
 a:visited {
-    color: inherit;
+    color: initial;
 }
 
 .change-password h2 {

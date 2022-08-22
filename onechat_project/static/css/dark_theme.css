@@ -23,7 +23,7 @@ html {
 .room h2,
 .footer a,
 .chat-message-message,
-.chat-message-username,
+.chat-window .chat-message-username,
 .sidebar a,
 .sidebar {
     color: #5e676e;
@@ -47,7 +47,8 @@ html {
 .chat-send-button,
 .log_in button,
 .footer button,
-#menu-button {
+#menu-button,
+.user-actions button {
     color: #010203;
     background-color: #5e676e;
 }
@@ -57,7 +58,8 @@ html {
 .chat-send-button:hover,
 .log_in button:hover, 
 .footer button:hover,
-#menu-button:hover {
+#menu-button:hover,
+.user-actions button:hover {
     background-color: #383e42;
 }
 
