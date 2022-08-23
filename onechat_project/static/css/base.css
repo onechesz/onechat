@@ -8,6 +8,19 @@ html {
     height: 100vh;
 }
 
+*::-webkit-scrollbar {
+    background-color: #b6ddd9;
+    width: .5rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #007167;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
 body {
     margin: 0 auto;
     min-height: 100%;
@@ -188,7 +201,8 @@ h1 {
 .private-chat-window {
     margin: 1rem 2rem 0;
     background-color: #009789;
-    border-radius: 1rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
     padding: 1rem;
     max-height: 50vh;
     overflow: auto;

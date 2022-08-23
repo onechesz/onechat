@@ -10,7 +10,8 @@ html {
 .navbar,
 .room,
 .chat-message,
-.footer {
+.footer,
+*::-webkit-scrollbar {
     background-color: #121212;
 }
 
@@ -86,7 +87,8 @@ html {
     color: #383e42;
 }
 
-.log_in > div > input {
+.log_in > div > input,
+*::-webkit-scrollbar-thumb  {
     background-color: #5e676e;
 }
 
